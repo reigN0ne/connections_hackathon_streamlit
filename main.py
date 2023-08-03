@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from mongodb_connection import MongoDBConnection
 from bson.objectid import ObjectId
-    
+
 if 'delete_state' not in st.session_state:
     st.session_state.delete_state = False
 
@@ -11,6 +11,7 @@ if 'status' not in st.session_state:
     
 if 'count' not in st.session_state:
     st.session_state.count = 0
+    caching.clear_cache()
     
 if 'user_data_length' not in st.session_state:
     st.session_state.user_data_length = 0
