@@ -32,17 +32,24 @@ conn = st.experimental_connection("mongodb", type=MongoDBConnection)
 db, collection = conn.cursor()
 
 st.title("Connections hackathon 🔌")
-col1, col2, col3 = st.columns(3)
+col0, col1 = st.columns([1, 20])
 
+with col0:
+    st.image('mongo_logo.png', width=40)
 with col1:
+    st.markdown('<h3 style="color: purple;margin:0px;">MongoDB Connection</h3>',
+                            unsafe_allow_html=True)
+    
+col2, col3, col4 = st.columns(3)
+with col2:
     if st.button('Fetch Data'):
         st.session_state.status = 'read'
 
-with col2:
+with col3:
     if st.button('Insert Data'):
         st.session_state.status = 'insert'
         
-with col3:
+with col4:
     if st.button("Delete Data"):
         st.session_state.status = 'delete'
         st.session_state.delete_state = False
