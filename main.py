@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
+import random
 from mongodb_connection import MongoDBConnection
-from streamlit import caching
 from bson.objectid import ObjectId
 
 if 'delete_state' not in st.session_state:
@@ -11,8 +11,7 @@ if 'status' not in st.session_state:
     st.session_state.status = None
     
 if 'count' not in st.session_state:
-    st.session_state.count = 0
-    caching.clear_cache()
+    st.session_state.count = random.randint(100, 100000000)
     
 if 'user_data_length' not in st.session_state:
     st.session_state.user_data_length = 0
