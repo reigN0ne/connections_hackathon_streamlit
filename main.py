@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from mongodb_connection import MongoDBConnection
+from streamlit import caching
 from bson.objectid import ObjectId
 
 if 'delete_state' not in st.session_state:
